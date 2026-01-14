@@ -1,0 +1,16 @@
+{
+  "name": "cv-js",
+  "version": "1.0.0",
+  "description": "Personal CV portfolio built with vanilla HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "cv",
+    "portfolio",
+    "vanilla-js"
+  ],
+  "author": "AmberHo",
+  "license": "MIT"
+}

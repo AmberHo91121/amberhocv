@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmberHo - CV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section: About and Photo -->
+        <div class="top-section">
+            <!-- About Section (Top Left) -->
+            <section class="about-section">
+                <h1 class="section-title">About</h1>
+                <div class="about-text">
+                    <p><strong>Email:</strong> amberho91121@gmail.com</p>
+                    <p><strong>生日:</strong> 2002.01.21</p>
+                    <p><strong>星座:</strong> 太陽水瓶+上升牡羊</p>
+                    <p><strong>老家:</strong> 新竹</p>
+                    <p><strong>MBTI:</strong> INTP-T</p>
+                </div>
+            </section>
+
+            <!-- Photo Section (Top Right) -->
+            <div class="photo-section">
+                <img src="profile.JPG" alt="AmberHo Profile Photo">
+            </div>
+        </div>
+
+        <!-- Experience Section (Middle Left) -->
+        <section class="experience-section">
+            <h1 class="section-title">Experience</h1>
+            <div class="timeline-container">
+                <div class="timeline-years" id="timelineYears"></div>
+                <div class="timeline-labels">
+                </div>
+            </div>
+            <!-- Popup will be dynamically created -->
+            <div class="popup experience-popup" id="experiencePopup"></div>
+        </section>
+
+        <!-- Future Section (Below Experience) -->
+        <section class="future-section">
+            <h1 class="section-title">Future</h1>
+            <div class="future-timeline">
+                <div class="future-item" data-term="short">
+                    <span>Short Term</span>
+                </div>
+                <div class="future-item" data-term="mid">
+                    <span>Mid Term</span>
+                </div>
+
+                <div class="future-item" data-term="long">
+                        <span>Long Term</span>
+                </div>
+            </div>
+            <!-- Popup will be dynamically created -->
+            <div class="popup future-popup" id="futurePopup"></div>
+        </section>
+
+        <!-- Popup Overlay for mobile -->
+        <div class="popup-overlay" id="popupOverlay"></div>
+
+        <!-- Name Footer (Bottom Left) -->
+        <div class="name-footer">
+            <h1>AmberHo</h1>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
