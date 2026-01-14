@@ -80,6 +80,78 @@ const experienceData = {
     ]
 };
 
+// Works data
+const worksData = {
+    inlife: {
+        title: 'InLife 興趣養成APP',
+        images: [
+            'Works/InLife 興趣養成APP/作品集final_頁面_03.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_04.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_05.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_06.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_07.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_08.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_09.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_10.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_11.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_12.jpg',
+            'Works/InLife 興趣養成APP/作品集final_頁面_13.jpg'
+        ]
+    },
+    koselig: {
+        title: 'Koselig 北歐中古家具零售服務設計',
+        images: [
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_14.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_16.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_17.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_18.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_19.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_20.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_21.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_22.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_23.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_24.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_25.jpg',
+            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_26.jpg'
+        ]
+    },
+    resort: {
+        title: '瑞穗天合飯店服務設計',
+        images: [
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_27.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_28.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_29.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_30.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_31.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_32.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_33.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_34.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_35.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_36.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_37.jpg',
+            'Works/瑞穗天合飯店服務設計/作品集final_頁面_38.jpg'
+        ]
+    },
+    other: {
+        title: '其他',
+        images: [
+            'Works/其他/0514_2.jpg',
+            'Works/其他/112_2_2產設.69.jpg',
+            'Works/其他/S__240058425.jpg',
+            'Works/其他/S__240058426.jpg',
+            'Works/其他/S__240058427.jpg',
+            'Works/其他/S__240058428.jpg',
+            'Works/其他/S__240058429.jpg',
+            'Works/其他/說明書(無底線_工作區域 1.jpg',
+            'Works/其他/資產 20307.jpg'
+        ]
+    }
+};
+
+// Works viewer state
+let currentWorkKey = null;
+let currentWorkIndex = 0;
+
 // Future data
 const futureData = {
     long: {
@@ -477,12 +549,203 @@ function hideFuturePopup() {
     futurePopup.style.userSelect = '';
 }
 
+// Initialize Works section
+function initWorks() {
+    const workItems = document.querySelectorAll('.work-item');
+    const worksPopup = document.getElementById('worksPopup');
+    
+    workItems.forEach(item => {
+        const work = item.dataset.work;
+        
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const currentPopup = document.getElementById('worksPopup');
+            const isCurrentlyShowing = currentPopup.classList.contains('show');
+            
+            // Toggle popup - close if already showing, open if not
+            if (isCurrentlyShowing && currentPopup.dataset.currentWork === work) {
+                hideWorksPopup();
+            } else {
+                showWorksPopup(work, item);
+            }
+        });
+    });
+    
+    // Close popup when clicking outside
+    document.addEventListener('click', (e) => {
+        const worksPopup = document.getElementById('worksPopup');
+        if (worksPopup.classList.contains('show') && 
+            !worksPopup.contains(e.target) &&
+            !e.target.closest('.work-item')) {
+            hideWorksPopup();
+        }
+    });
+}
+
+// Show works popup
+function showWorksPopup(work, workElement) {
+    const worksPopup = document.getElementById('worksPopup');
+    const data = worksData[work];
+    
+    if (!data) return;
+
+    currentWorkKey = work;
+    currentWorkIndex = 0;
+
+    const total = data.images.length;
+    const initialSrc = data.images[currentWorkIndex];
+
+    const html = `
+        <div class="works-popup-inner">
+            <h2>${data.title}</h2>
+            <div class="works-viewer">
+                <div class="works-image-wrapper">
+                    <img class="works-main-image" src="${initialSrc}" alt="${data.title}">
+                </div>
+                <div class="works-nav">
+                    <button class="works-arrow works-arrow-prev" aria-label="上一張">‹</button>
+                    <button class="works-arrow works-arrow-next" aria-label="下一張">›</button>
+                </div>
+            </div>
+            <div class="works-counter">
+                <span class="works-counter-text">${currentWorkIndex + 1} / ${total}</span>
+            </div>
+        </div>
+    `;
+
+    // Add close button
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'popup-close-btn';
+    closeBtn.innerHTML = '×';
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideWorksPopup();
+    });
+
+    worksPopup.innerHTML = html;
+    worksPopup.appendChild(closeBtn);
+    worksPopup.dataset.currentWork = work;
+
+    // Show popup full screen
+    worksPopup.style.position = 'fixed';
+    worksPopup.style.left = '0';
+    worksPopup.style.top = '0';
+    worksPopup.style.opacity = '0';
+    worksPopup.style.visibility = 'visible';
+    worksPopup.style.transform = 'translateY(-10px)';
+    worksPopup.classList.add('show');
+
+    requestAnimationFrame(() => {
+        worksPopup.style.opacity = '';
+        worksPopup.style.visibility = '';
+        worksPopup.style.transform = '';
+    });
+
+    // Attach navigation events
+    const prevBtn = worksPopup.querySelector('.works-arrow-prev');
+    const nextBtn = worksPopup.querySelector('.works-arrow-next');
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrevWorkImage();
+        });
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNextWorkImage();
+        });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', handleWorksKeydown);
+
+    // Initialize drag functionality (drag by top bar)
+    makeDraggable(worksPopup);
+
+    // Show overlay on mobile
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        const overlay = document.getElementById('popupOverlay');
+        if (overlay) {
+            overlay.classList.add('show');
+        }
+    }
+}
+
+function updateWorksViewer() {
+    if (!currentWorkKey) return;
+    const worksPopup = document.getElementById('worksPopup');
+    const data = worksData[currentWorkKey];
+    if (!worksPopup || !data) return;
+
+    const imgEl = worksPopup.querySelector('.works-main-image');
+    const counterEl = worksPopup.querySelector('.works-counter-text');
+    if (!imgEl || !counterEl) return;
+
+    const total = data.images.length;
+    const clampedIndex = ((currentWorkIndex % total) + total) % total;
+    currentWorkIndex = clampedIndex;
+
+    imgEl.src = data.images[currentWorkIndex];
+    counterEl.textContent = `${currentWorkIndex + 1} / ${total}`;
+}
+
+function showPrevWorkImage() {
+    if (!currentWorkKey) return;
+    currentWorkIndex -= 1;
+    updateWorksViewer();
+}
+
+function showNextWorkImage() {
+    if (!currentWorkKey) return;
+    currentWorkIndex += 1;
+    updateWorksViewer();
+}
+
+function handleWorksKeydown(e) {
+    const worksPopup = document.getElementById('worksPopup');
+    if (!worksPopup || !worksPopup.classList.contains('show')) return;
+
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        showPrevWorkImage();
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        showNextWorkImage();
+    } else if (e.key === 'Escape') {
+        e.preventDefault();
+        hideWorksPopup();
+    }
+}
+
+// Hide works popup
+function hideWorksPopup() {
+    const worksPopup = document.getElementById('worksPopup');
+    const overlay = document.getElementById('popupOverlay');
+    worksPopup.classList.remove('show');
+    if (overlay) {
+        overlay.classList.remove('show');
+    }
+    // Reset positioning and styles
+    worksPopup.style.position = '';
+    worksPopup.style.left = '';
+    worksPopup.style.top = '';
+    worksPopup.style.transform = '';
+    worksPopup.style.cursor = '';
+    worksPopup.style.userSelect = '';
+
+    // Remove keyboard listener
+    document.removeEventListener('keydown', handleWorksKeydown);
+    currentWorkKey = null;
+}
+
 // Initialize overlay click handler
 function initOverlay() {
     const overlay = document.getElementById('popupOverlay');
     if (overlay) {
         overlay.addEventListener('click', () => {
             hideExperiencePopup();
+            hideWorksPopup();
             hideFuturePopup();
         });
     }
@@ -680,7 +943,7 @@ function initCursorTrail() {
     document.body.style.cursor = 'none';
     
     // 在可點擊元素上顯示適當的游標並放大效果
-    const clickableElements = document.querySelectorAll('a, button, .year-item, .future-item, .popup-close-btn');
+    const clickableElements = document.querySelectorAll('a, button, .year-item, .work-item, .future-item, .popup-close-btn, .works-arrow');
     clickableElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
@@ -694,6 +957,7 @@ function initCursorTrail() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initTimeline();
+    initWorks();
     initFuture();
     initOverlay();
     initCursorTrail();

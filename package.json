@@ -4,7 +4,7 @@
   "description": "Personal CV portfolio built with vanilla HTML, CSS, and JavaScript",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve ."
+    "start": "serve ."
   },
   "keywords": [
     "cv",
@@ -12,5 +12,8 @@
     "vanilla-js"
   ],
   "author": "AmberHo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
 }
