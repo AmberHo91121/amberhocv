@@ -10,6 +10,14 @@ CV-JS/
 ├── styles.css      # 樣式表
 ├── script.js       # JavaScript 功能
 ├── profile.JPG     # 個人照片
+├── cover01.png     # Works 封面圖片
+├── cover02.png     # Works 封面圖片
+├── cover03.jpg     # Works 封面圖片
+├── cover04.jpg     # Works 封面圖片
+├── inlife_*.jpg    # InLife 作品集圖片（11張）
+├── koselig_*.jpg   # Koselig 作品集圖片（12張）
+├── resort_*.jpg    # 瑞穗作品集圖片（12張）
+├── other_*.jpg     # 其他作品圖片（9張）
 ├── package.json    # 專案配置
 └── README.md       # 說明文件
 ```
