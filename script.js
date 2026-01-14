@@ -80,70 +80,70 @@ const experienceData = {
     ]
 };
 
-// Works data
+// Works data - 所有圖片已移到根目錄
 const worksData = {
     inlife: {
         title: 'InLife 興趣養成APP',
         images: [
-            'Works/InLife 興趣養成APP/作品集final_頁面_03.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_04.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_05.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_06.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_07.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_08.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_09.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_10.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_11.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_12.jpg',
-            'Works/InLife 興趣養成APP/作品集final_頁面_13.jpg'
+            'inlife_01.jpg',
+            'inlife_02.jpg',
+            'inlife_03.jpg',
+            'inlife_04.jpg',
+            'inlife_05.jpg',
+            'inlife_06.jpg',
+            'inlife_07.jpg',
+            'inlife_08.jpg',
+            'inlife_09.jpg',
+            'inlife_10.jpg',
+            'inlife_11.jpg'
         ]
     },
     koselig: {
         title: 'Koselig 北歐中古家具零售服務設計',
         images: [
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_14.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_16.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_17.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_18.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_19.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_20.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_21.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_22.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_23.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_24.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_25.jpg',
-            'Works/Koselig 北歐中古家具零售服務設計/作品集final_頁面_26.jpg'
+            'koselig_01.jpg',
+            'koselig_02.jpg',
+            'koselig_03.jpg',
+            'koselig_04.jpg',
+            'koselig_05.jpg',
+            'koselig_06.jpg',
+            'koselig_07.jpg',
+            'koselig_08.jpg',
+            'koselig_09.jpg',
+            'koselig_10.jpg',
+            'koselig_11.jpg',
+            'koselig_12.jpg'
         ]
     },
     resort: {
         title: '瑞穗天合飯店服務設計',
         images: [
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_27.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_28.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_29.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_30.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_31.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_32.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_33.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_34.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_35.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_36.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_37.jpg',
-            'Works/瑞穗天合飯店服務設計/作品集final_頁面_38.jpg'
+            'resort_01.jpg',
+            'resort_02.jpg',
+            'resort_03.jpg',
+            'resort_04.jpg',
+            'resort_05.jpg',
+            'resort_06.jpg',
+            'resort_07.jpg',
+            'resort_08.jpg',
+            'resort_09.jpg',
+            'resort_10.jpg',
+            'resort_11.jpg',
+            'resort_12.jpg'
         ]
     },
     other: {
         title: '其他',
         images: [
-            'Works/其他/0514_2.jpg',
-            'Works/其他/112_2_2產設.69.jpg',
-            'Works/其他/S__240058425.jpg',
-            'Works/其他/S__240058426.jpg',
-            'Works/其他/S__240058427.jpg',
-            'Works/其他/S__240058428.jpg',
-            'Works/其他/S__240058429.jpg',
-            'Works/其他/說明書(無底線_工作區域 1.jpg',
-            'Works/其他/資產 20307.jpg'
+            'other_01.jpg',
+            'other_02.jpg',
+            'other_03.jpg',
+            'other_04.jpg',
+            'other_05.jpg',
+            'other_06.jpg',
+            'other_07.jpg',
+            'other_08.jpg',
+            'other_09.jpg'
         ]
     }
 };
